@@ -1,0 +1,4 @@
+*.gitattributes
+*.class
+*.jar
+.metadata/*
