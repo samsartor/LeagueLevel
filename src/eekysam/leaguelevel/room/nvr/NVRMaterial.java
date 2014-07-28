@@ -34,6 +34,6 @@ public class NVRMaterial
 		{
 			this.textures[i] = new NVRTexture(read);
 		}
-		PrintOut.printf("(Name: %S)", String.copyValueOf(this.name));
+		PrintOut.printf("(Name: %S)", PrintOut.fromChars(this.name));
 	}
 }
