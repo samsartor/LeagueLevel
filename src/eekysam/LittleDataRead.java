@@ -64,4 +64,20 @@ public class LittleDataRead
 	{
 		return (byte) this.inputStream.read();
 	}
+	
+	public void readFloats(float[] floats) throws IOException
+	{
+		for (int i = 0; i < floats.length; i++)
+		{
+			floats[i] = this.readFloat();
+		}
+	}
+	
+	public void readInts(int[] ints) throws IOException
+	{
+		for (int i = 0; i < ints.length; i++)
+		{
+			ints[i] = this.readInt();
+		}
+	}
 }

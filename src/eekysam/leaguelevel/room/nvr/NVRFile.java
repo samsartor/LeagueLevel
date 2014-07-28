@@ -36,6 +36,10 @@ public class NVRFile
 	
 	public NVRMaterial[] materials;
 	public NVRVertexList[] verts;
+	public NVRFaceArray[] indicies;
+	public NVRMesh[] models;
+	
+	private boolean[] vertTypeFlags;
 	
 	private void read(LittleDataRead read) throws IOException
 	{
@@ -68,6 +72,37 @@ public class NVRFile
 		for (int i = 0; i < this.vertexListCount; i++)
 		{
 			this.verts[i] = new NVRVertexList(read);
+		}
+		PrintOut.tabOut();
+		
+		PrintOut.printf("Reading %d Face Arrays...", this.indexListCount);
+		PrintOut.tabIn();
+		this.indicies = new NVRFaceArray[this.indexListCount];
+		for (int i = 0; i < this.indexListCount; i++)
+		{
+			this.indicies[i] = new NVRFaceArray(read);
+		}
+		PrintOut.tabOut();
+		
+		this.vertTypeFlags = new boolean[this.vertexListCount];
+		
+		PrintOut.printf("Reading %d Models...", this.modelCount);
+		PrintOut.tabIn();
+		this.models = new NVRMesh[this.modelCount];
+		for (int i = 0; i < this.modelCount; i++)
+		{
+			NVRMesh mesh = new NVRMesh(read);
+			this.models[i] = mesh;
+			this.vertTypeFlags[mesh.meshes[0].indexId] = true;
+			this.vertTypeFlags[mesh.meshes[1].indexId] = false;
+		}
+		PrintOut.tabOut();
+		
+		PrintOut.printf("Parsing %d Vertex Lists...", this.vertexListCount);
+		PrintOut.tabIn();
+		for (int i = 0; i < this.vertexListCount; i++)
+		{
+			this.verts[i].parseData(!this.vertTypeFlags[i]);
 		}
 		PrintOut.tabOut();
 	}

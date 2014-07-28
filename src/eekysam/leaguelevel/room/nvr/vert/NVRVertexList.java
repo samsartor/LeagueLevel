@@ -24,7 +24,6 @@ public class NVRVertexList
 		{
 			return;
 		}
-		PrintOut.println("Parsing Vertices...");
 		if (byte12data)
 		{
 			this.parseByte12Data();
@@ -38,11 +37,11 @@ public class NVRVertexList
 	
 	private void parseByte12Data()
 	{
-		
+		PrintOut.printf("(Count: %d, VertexType: 12 byte)", this.dataSize / 12);
 	}
 	
 	private void paseByte364044Data()
 	{
-		
+		PrintOut.printf("(VertexType: 36/40/44 byte)");
 	}
 }
