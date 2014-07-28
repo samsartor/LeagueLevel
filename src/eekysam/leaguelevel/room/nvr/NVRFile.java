@@ -61,7 +61,7 @@ public class NVRFile
 		
 		PrintOut.printf("Reading %d Materials...", this.materialCount);
 		PrintOut.tabIn();
-		this.materials = new NVRMaterial[this.modelCount];
+		this.materials = new NVRMaterial[this.materialCount];
 		for (int i = 0; i < this.materialCount; i++)
 		{
 			this.materials[i] = new NVRMaterial(read);
