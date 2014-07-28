@@ -30,10 +30,12 @@ public class NVRMaterial
 		this.unk1 = read.readInt();
 		this.unk2 = read.readInt();
 		this.unk3 = read.readInt();
+		PrintOut.printf("(Name: %S, %d, %d, %d)", PrintOut.fromChars(this.name), this.unk1, this.unk2, this.unk3);
+		PrintOut.addPrefix("\t");
 		for (int i = 0; i < this.textures.length; i++)
 		{
 			this.textures[i] = new NVRTexture(read);
 		}
-		PrintOut.printf("(Name: %S)", PrintOut.fromChars(this.name));
+		PrintOut.removePrefix();
 	}
 }

@@ -91,4 +91,16 @@ public class PrintOut
 		}
 		return s;
 	}
+	
+	public static void tabIn()
+	{
+		PrintOut.println("{");
+		PrintOut.addPrefix("\t");
+	}
+	
+	public static void tabOut()
+	{
+		PrintOut.removePrefix();
+		PrintOut.println("}");
+	}
 }

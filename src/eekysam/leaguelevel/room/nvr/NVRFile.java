@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 import eekysam.LittleDataRead;
 import eekysam.PrintOut;
+import eekysam.leaguelevel.room.nvr.vert.NVRVertexList;
 
 public class NVRFile
 {
@@ -34,11 +35,12 @@ public class NVRFile
 	public int AABBCount;
 	
 	public NVRMaterial[] materials;
+	public NVRVertexList[] verts;
 	
 	private void read(LittleDataRead read) throws IOException
 	{
 		read.read(this.magic);
-		if (Arrays.equals(fileMagic, this.magic))
+		if (!Arrays.equals(fileMagic, this.magic))
 		{
 			PrintOut.printf("WARNING: Magic number is incorrect! (%s)", PrintOut.fromCharsFull(this.magic));
 		}
@@ -52,15 +54,22 @@ public class NVRFile
 		this.AABBCount = read.readInt();
 		
 		PrintOut.printf("Reading %d Materials...", this.materialCount);
-		PrintOut.println("{");
-		PrintOut.addPrefix("\t");
+		PrintOut.tabIn();
 		this.materials = new NVRMaterial[this.modelCount];
 		for (int i = 0; i < this.materialCount; i++)
 		{
 			this.materials[i] = new NVRMaterial(read);
 		}
-		PrintOut.removePrefix();
-		PrintOut.println("}");
+		PrintOut.tabOut();
+		
+		PrintOut.printf("Reading %d Vertex Lists...", this.vertexListCount);
+		PrintOut.tabIn();
+		this.verts = new NVRVertexList[this.vertexListCount];
+		for (int i = 0; i < this.vertexListCount; i++)
+		{
+			this.verts[i] = new NVRVertexList(read);
+		}
+		PrintOut.tabOut();
 	}
 	
 	public static NVRFile readNVR(File file) throws IOException
