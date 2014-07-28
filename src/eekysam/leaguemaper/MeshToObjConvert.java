@@ -25,13 +25,13 @@ public class MeshToObjConvert
 		this.complex = complex;
 	}
 	
-	public int convert(int vertindex)
+	public int convert(int vertindex, float scale)
 	{
 		int num = 0;
 		NVRVertexList verts = this.nvr.verts[this.mesh.vertexId];
 		for (int i = this.mesh.vertexOffset; i < this.mesh.vertexOffset + this.mesh.vertexCount; i++)
 		{
-			this.convertVertex(verts.verts[i]);
+			this.convertVertex(verts.verts[i], scale);
 			num++;
 		}
 		NVRFaceArray array = this.nvr.indicies[this.mesh.indexId];
@@ -47,7 +47,7 @@ public class MeshToObjConvert
 		String s = "f";
 		for (int j = 0; j < 3; j++)
 		{
-			int k = array.indicies[face + j];
+			int k = array.indicies[face + j] & 0xFFFF;
 			int f = (k - this.mesh.vertexOffset) + vertindex + 1;
 			s += " " + this.getFaceIndex(f);
 		}
@@ -66,34 +66,34 @@ public class MeshToObjConvert
 		}
 	}
 	
-	private void convertVertex(NVRVertex vert)
+	private void convertVertex(NVRVertex vert, float scale)
 	{
 		if (vert instanceof NVRVertexSimple)
 		{
-			this.convertVertex((NVRVertexSimple) vert);
+			this.convertVertex((NVRVertexSimple) vert, scale);
 		}
 		else if (vert instanceof NVRVertexComplex)
 		{
-			this.convertVertex((NVRVertexComplex) vert);
+			this.convertVertex((NVRVertexComplex) vert, scale);
 		}
 	}
 	
-	private void convertVertex(NVRVertexSimple vert)
+	private void convertVertex(NVRVertexSimple vert, float scale)
 	{
 		String s = "v";
 		for (int i = 0; i < 3; i++)
 		{
-			s += " " + vert.position[i];
+			s += " " + (vert.position[i] * scale);
 		}
 		this.print.println(s);
 	}
 	
-	private void convertVertex(NVRVertexComplex vert)
+	private void convertVertex(NVRVertexComplex vert, float scale)
 	{
 		String s = "v";
 		for (int i = 0; i < 3; i++)
 		{
-			s += " " + vert.position[i];
+			s += " " + (vert.position[i] * scale);
 		}
 		this.print.println(s);
 		s = "vn";

@@ -23,6 +23,11 @@ public class Main
 			e.printStackTrace();
 		}
 		System.out.printf("%nConverting '%s' to OBJ...%n", args[0]);
+		float scale = 1.0F;
+		if (args.length >= 2)
+		{
+			scale = Float.parseFloat(args[1]);
+		}
 		NVRFile nvr = level.room.roomModels;
 		PrintStream[][] prints = new PrintStream[nvr.materialCount][];
 		int[][] vertindex = new int[nvr.materialCount][2];
@@ -45,7 +50,7 @@ public class Main
 			for (int j = 0; j < 2; j++)
 			{
 				MeshToObjConvert conv = new MeshToObjConvert(mesh.meshes[j], nvr, prints[mesh.material][j], j == 0);
-				vertindex[mesh.material][j] += conv.convert(vertindex[mesh.material][j]);
+				vertindex[mesh.material][j] += conv.convert(vertindex[mesh.material][j], scale);
 			}
 			lastpercent = percentUpdate(2, 2, i, nvr.models.length, lastpercent, 1.0F);
 		}
