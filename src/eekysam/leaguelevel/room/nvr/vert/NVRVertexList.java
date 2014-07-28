@@ -69,7 +69,7 @@ public class NVRVertexList
 		}
 		this.verts = new NVRVertexComplex[list.size()];
 		list.toArray(this.verts);
-		PrintOut.printf("(Count %d, VertexType: %d byte)", this.verts.length, type);
+		PrintOut.printf("(Count: %d, VertexType: %d byte)", this.verts.length, type);
 		if (diff)
 		{
 			PrintOut.println("\tWARNING: Vertex Type was not Constant!");

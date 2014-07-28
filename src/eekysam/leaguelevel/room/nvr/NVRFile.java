@@ -38,11 +38,13 @@ public class NVRFile
 	public NVRVertexList[] verts;
 	public NVRFaceArray[] indicies;
 	public NVRMesh[] models;
+	public NVRBoundingBox[] boxes;
 	
 	private boolean[] vertTypeFlags;
 	
 	private void read(LittleDataRead read) throws IOException
 	{
+		long startTime = System.currentTimeMillis();
 		read.read(this.magic);
 		if (!Arrays.equals(fileMagic, this.magic))
 		{
@@ -105,6 +107,18 @@ public class NVRFile
 			this.verts[i].parseData(!this.vertTypeFlags[i]);
 		}
 		PrintOut.tabOut();
+		
+		PrintOut.printf("Reading %d Bounding Boxes...", this.AABBCount);
+		//PrintOut.tabIn();
+		this.boxes = new NVRBoundingBox[this.AABBCount];
+		for (int i = 0; i < this.AABBCount; i++)
+		{
+			this.boxes[i] = new NVRBoundingBox(read);
+		}
+		//PrintOut.tabOut();
+		
+		long endTime = System.currentTimeMillis();
+		PrintOut.printf("\nDone Reading NVR File After %dms!", endTime - startTime);
 	}
 	
 	public static NVRFile readNVR(File file) throws IOException
