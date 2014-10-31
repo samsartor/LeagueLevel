@@ -2,21 +2,27 @@
 
 Export League of Legends NVR Map Files
 
+##Disclaimer
+LeagueLevel is NOT supported by Riot Games, it is a fan-made converter made by reverse engineering the level format, so it may not always work. I also don't have infinite time, so it will rarely be up to date. Feel free to use it however you like as long as it doesn't violate any Riot Games stuff, but do credit me pls.
+
 ##Installing
 1. Clone the Repository
-2. Compile 'src' to an executable Jar file in an empty folder. (This folder will also be your export destination)
+2. Compile 'src' to an executable Jar file or download a release. 
+3. Put the jar into an empty folder. (This folder will also be your export destination)
 
 ##Getting the Level Files
 To export a LOL map, you have to first extract the map data from the game assets.
+
 ###Installing RAFManager
-Follow the instructions from the [League of Legends forums](http://forums.na.leagueoflegends.com/board/showthread.php?p=8597866) to download and install RAFManager by ItzWarty 
+Follow the instructions from the [League of Legends forums](http://forums.na.leagueoflegends.com/board/showthread.php?p=8597866) to download and install RAFManager by ItzWarty
+
 ###Extracting the Files
 1. Create an easy-to-access dump folder (on the desktop is recommended, you can move it later)
 2. Open RAFManager
-3. For each directory in the tree-view on the right, starting with the lowest version number and working your way up...
+3. For each directory in the tree-view on the right, starting with the lowest version number and working your way up (note that the current version of LeagueLevel has only been tested up to the 0.0.0.238 directory)...
   1. Expand the directory  (Some directories do not have any contents, skip them)
   2. Right click the subdirectory called 'LEVELS' (Many directories do not have a 'LEVELS' subdirectory, skip them as well)
-  3. Click "Dump" and select the folder you created in step 1 (This may take a few seconds, be patient)
+  3. Click "Dump" and select the folder you created in step 1 (This may take a few seconds, be patient)  
 4. Move your dump folder (Now containing "/LEVELS/Map.../...") to a better location if you want
 
 ##Running and Exporting
