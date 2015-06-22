@@ -1,4 +1,8 @@
 *.gitattributes
 *.class
 *.jar
-.metadata/*
+.gradle/
+.metadata/
+.classpath
+.project
+.settings/

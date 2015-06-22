@@ -1,4 +1,4 @@
-package eekysam.leaguelevel.room.nvr;
+package net.eekysam.leaguelevel.room.nvr;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-import eekysam.LittleDataRead;
-import eekysam.PrintOut;
-import eekysam.leaguelevel.room.nvr.vert.NVRVertexList;
+import net.eekysam.LittleDataRead;
+import net.eekysam.PrintOut;
+import net.eekysam.leaguelevel.room.nvr.vert.NVRVertexList;
 
 public class NVRFile
 {

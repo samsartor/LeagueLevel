@@ -1,9 +1,9 @@
-package eekysam.leaguelevel;
+package net.eekysam.leaguelevel;
 
 import java.io.File;
 import java.io.IOException;
 
-import eekysam.leaguelevel.room.LevelRoom;
+import net.eekysam.leaguelevel.room.LevelRoom;
 
 public class Level
 {

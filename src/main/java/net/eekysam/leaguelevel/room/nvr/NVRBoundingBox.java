@@ -1,8 +1,8 @@
-package eekysam.leaguelevel.room.nvr;
+package net.eekysam.leaguelevel.room.nvr;
 
 import java.io.IOException;
 
-import eekysam.LittleDataRead;
+import net.eekysam.LittleDataRead;
 
 public class NVRBoundingBox
 {

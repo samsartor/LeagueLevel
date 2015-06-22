@@ -1,4 +1,4 @@
-package eekysam;
+package net.eekysam;
 
 import java.util.ArrayList;
 

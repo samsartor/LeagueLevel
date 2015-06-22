@@ -1,9 +1,9 @@
-package eekysam.leaguelevel.room;
+package net.eekysam.leaguelevel.room;
 
 import java.io.File;
 import java.io.IOException;
 
-import eekysam.leaguelevel.room.nvr.NVRFile;
+import net.eekysam.leaguelevel.room.nvr.NVRFile;
 
 public class LevelRoom
 {

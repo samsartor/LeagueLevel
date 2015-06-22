@@ -1,9 +1,9 @@
-package eekysam.leaguelevel.room.nvr;
+package net.eekysam.leaguelevel.room.nvr;
 
 import java.io.IOException;
 
-import eekysam.LittleDataRead;
-import eekysam.PrintOut;
+import net.eekysam.LittleDataRead;
+import net.eekysam.PrintOut;
 
 public class NVRMaterial
 {

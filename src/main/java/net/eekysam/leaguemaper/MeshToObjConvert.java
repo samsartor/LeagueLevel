@@ -1,14 +1,14 @@
-package eekysam.leaguemaper;
+package net.eekysam.leaguemaper;
 
 import java.io.PrintStream;
 
-import eekysam.leaguelevel.room.nvr.NVRFaceArray;
-import eekysam.leaguelevel.room.nvr.NVRFile;
-import eekysam.leaguelevel.room.nvr.NVRSubMesh;
-import eekysam.leaguelevel.room.nvr.vert.NVRVertex;
-import eekysam.leaguelevel.room.nvr.vert.NVRVertexComplex;
-import eekysam.leaguelevel.room.nvr.vert.NVRVertexList;
-import eekysam.leaguelevel.room.nvr.vert.NVRVertexSimple;
+import net.eekysam.leaguelevel.room.nvr.NVRFaceArray;
+import net.eekysam.leaguelevel.room.nvr.NVRFile;
+import net.eekysam.leaguelevel.room.nvr.NVRSubMesh;
+import net.eekysam.leaguelevel.room.nvr.vert.NVRVertex;
+import net.eekysam.leaguelevel.room.nvr.vert.NVRVertexComplex;
+import net.eekysam.leaguelevel.room.nvr.vert.NVRVertexList;
+import net.eekysam.leaguelevel.room.nvr.vert.NVRVertexSimple;
 
 public class MeshToObjConvert
 {
@@ -35,7 +35,7 @@ public class MeshToObjConvert
 			num++;
 		}
 		NVRFaceArray array = this.nvr.indicies[this.mesh.indexId];
-		for (int i = this.mesh.indexOffset; i < this.mesh.indexOffset + this.mesh.indexCount; i+=3)
+		for (int i = this.mesh.indexOffset; i < this.mesh.indexOffset + this.mesh.indexCount; i += 3)
 		{
 			this.convertFace(array, i, vertindex);
 		}
@@ -81,6 +81,7 @@ public class MeshToObjConvert
 	private void convertVertex(NVRVertexSimple vert, float scale)
 	{
 		String s = "v";
+		vert.position[0] *= -1;
 		for (int i = 0; i < 3; i++)
 		{
 			s += " " + (vert.position[i] * scale);

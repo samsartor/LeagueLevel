@@ -1,4 +1,4 @@
-package eekysam.leaguelevel.room.nvr.vert;
+package net.eekysam.leaguelevel.room.nvr.vert;
 
 public abstract class NVRVertex
 {

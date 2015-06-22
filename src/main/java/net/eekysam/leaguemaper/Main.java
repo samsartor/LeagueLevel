@@ -1,13 +1,13 @@
-package eekysam.leaguemaper;
+package net.eekysam.leaguemaper;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import eekysam.leaguelevel.Level;
-import eekysam.leaguelevel.room.nvr.NVRFile;
-import eekysam.leaguelevel.room.nvr.NVRMaterial;
-import eekysam.leaguelevel.room.nvr.NVRMesh;
+import net.eekysam.leaguelevel.Level;
+import net.eekysam.leaguelevel.room.nvr.NVRFile;
+import net.eekysam.leaguelevel.room.nvr.NVRMaterial;
+import net.eekysam.leaguelevel.room.nvr.NVRMesh;
 
 public class Main
 {

@@ -1,10 +1,10 @@
-package eekysam.leaguelevel.room.nvr.vert;
+package net.eekysam.leaguelevel.room.nvr.vert;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import eekysam.LittleDataRead;
-import eekysam.PrintOut;
+import net.eekysam.LittleDataRead;
+import net.eekysam.PrintOut;
 
 public class NVRVertexList
 {
