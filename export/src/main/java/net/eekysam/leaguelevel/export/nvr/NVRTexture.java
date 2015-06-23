@@ -20,10 +20,7 @@ public class NVRTexture
 	static NVRTexture read(LittleEndianDataInputStream in) throws IOException
 	{
 		NVRTexture t = new NVRTexture();
-		for (int i = 0; i < t.color.length; i++)
-		{
-			t.color[i] = in.readFloat();
-		}
+		ReadUtils.readFloats(in, t.color);
 		t.name = ReadUtils.readString(in, 256);
 		in.readFully(t.extra);
 		return t;

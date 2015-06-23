@@ -3,6 +3,8 @@ package net.eekysam.leaguelevel.export.nvr;
 import java.io.IOException;
 import java.util.Arrays;
 
+import net.eekysam.leaguelevel.export.ReadUtils;
+
 import com.google.common.io.LittleEndianDataInputStream;
 
 public class NVRVert
@@ -20,18 +22,9 @@ public class NVRVert
 	static NVRVert read(LittleEndianDataInputStream in) throws IOException
 	{
 		NVRVert v = new NVRVert();
-		for (int i = 0; i < v.pos.length; i++)
-		{
-			v.pos[i] = in.readFloat();
-		}
-		for (int i = 0; i < v.norm.length; i++)
-		{
-			v.norm[i] = in.readFloat();
-		}
-		for (int i = 0; i < v.uv.length; i++)
-		{
-			v.uv[i] = in.readFloat();
-		}
+		ReadUtils.readFloats(in, v.pos);
+		ReadUtils.readFloats(in, v.norm);
+		ReadUtils.readFloats(in, v.uv);
 		while (true)
 		{
 			in.mark(5);
